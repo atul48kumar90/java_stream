@@ -72,7 +72,11 @@ public class StreamPractice2 {
         //Group Words by Their First Letter
         List<String> words5 = Arrays.asList("apple", "banana", "apricot", "cherry", "avocado");
         Map<String, List<String>> map = words5.stream().collect(Collectors.groupingBy(s -> s.substring(0,1)));
-        System.out.println(" group words by first letter: " + map);
+        //System.out.println(" group words by first letter: " + map);
+
+        //Find the Longest Consecutive Subsequence
+        List<Integer> number6 = Arrays.asList(100, 4, 200, 1, 3, 2);
+
 
 
     }
