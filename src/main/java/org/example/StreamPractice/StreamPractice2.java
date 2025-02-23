@@ -77,7 +77,9 @@ public class StreamPractice2 {
         //Find the Longest Consecutive Subsequence
         List<Integer> number6 = Arrays.asList(100, 4, 200, 1, 3, 2);
 
-
+        //Find the Median of a List
+        int median = numbers4.stream().sorted().collect(Collectors.toList()).get(numbers4.size()/2);
+        System.out.println(" median: " + median);
 
     }
 }
