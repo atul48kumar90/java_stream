@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -53,9 +54,20 @@ public class StreamPractice2 {
 
         List<Integer> mergedList = Stream.concat(list1.stream(), list2.stream()).distinct().sorted().collect(Collectors.toList());
         List<Integer> mergedList2 = Stream.of(list1, list2).flatMap(Collection::stream).collect(Collectors.toList());
-        System.out.println(" merged list 1: " + mergedList);
-        System.out.println(" merged list 2: " + mergedList2);
+        //System.out.println(" merged list 1: " + mergedList);
+        //System.out.println(" merged list 2: " + mergedList2);
 
+        //Find the Most Frequent Element in a List
+        List<String> words2 = Arrays.asList("apple", "banana", "apple", "cherry", "banana", "apple");
+        String mostFrequent = words2.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+        .entrySet().stream().max(Comparator.comparingLong(Map.Entry::getValue)).map(Map.Entry::getKey).toString();
+        //System.out.println(" most frequent element: " + mostFrequent);
+
+        //Find the Kth Largest Element
+        List<Integer> numbers4 = Arrays.asList(3, 2, 1, 5, 6, 4);
+        int k = 2;
+        Optional<Integer> kLargestNumber = numbers4.stream().sorted(Comparator.reverseOrder()).skip(k-1).findFirst();
+        System.out.println(" kth largest number: " + kLargestNumber);
 
 
     }
