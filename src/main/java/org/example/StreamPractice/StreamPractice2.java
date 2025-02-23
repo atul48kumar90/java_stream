@@ -79,7 +79,25 @@ public class StreamPractice2 {
 
         //Find the Median of a List
         int median = numbers4.stream().sorted().collect(Collectors.toList()).get(numbers4.size()/2);
-        System.out.println(" median: " + median);
+        //System.out.println(" median: " + median);
+
+        int n = 10; // Number of Fibonacci numbers to generate
+
+        // Stream.iterate(new int[]{0, 1}, fib -> new int[]{fib[1], fib[0] + fib[1]}) // Generate Fibonacci pairs
+        //       .limit(n) // Limit to 'n' elements
+        //       .map(fib -> fib[0]) // Extract the first number of each pair
+        //       .forEach(System.out::println); // Print the sequence
+
+
+        String input = "banana";
+        char c = input.chars().mapToObj(ch -> (char)ch)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .orElse('\0');
+
+        System.out.println(" most occuring char: " + c);
 
     }
 }
