@@ -97,7 +97,11 @@ public class StreamPractice2 {
                 .map(Map.Entry::getKey)
                 .orElse('\0');
 
-        System.out.println(" most occuring char: " + c);
+        //System.out.println(" most occuring char: " + c);
+
+        //Find Common Elements Between Two Lists
+        List<Integer> commonElem = list1.stream().filter(list2::contains).distinct().collect(Collectors.toList());
+        System.out.println(" common element: " + commonElem);
 
     }
 }
