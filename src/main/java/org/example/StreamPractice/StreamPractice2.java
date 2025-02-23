@@ -67,7 +67,12 @@ public class StreamPractice2 {
         List<Integer> numbers4 = Arrays.asList(3, 2, 1, 5, 6, 4);
         int k = 2;
         Optional<Integer> kLargestNumber = numbers4.stream().sorted(Comparator.reverseOrder()).skip(k-1).findFirst();
-        System.out.println(" kth largest number: " + kLargestNumber);
+        //System.out.println(" kth largest number: " + kLargestNumber);
+
+        //Group Words by Their First Letter
+        List<String> words5 = Arrays.asList("apple", "banana", "apricot", "cherry", "avocado");
+        Map<String, List<String>> map = words5.stream().collect(Collectors.groupingBy(s -> s.substring(0,1)));
+        System.out.println(" group words by first letter: " + map);
 
 
     }
